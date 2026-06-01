@@ -53,6 +53,10 @@ func main() {
 		log.Fatalf("could not load config: %v", err)
 	}
 
+	fmt.Println("MONGO_URI =", cfg.MongoURI)
+	fmt.Println("PORT =", cfg.ServerPort)
+	fmt.Println("DB_NAME =", cfg.DBName)
+
 	// --- Logger ---
 	// This must be initialized before any other component that might log.
 	logger.InitLogger(cfg)

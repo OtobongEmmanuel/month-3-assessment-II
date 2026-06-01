@@ -38,6 +38,17 @@ func LoadConfig(path string) (config Config, err error) {
 		}
 	}
 
+	viper.BindEnv("PORT")
+	viper.BindEnv("MONGO_URI")
+	viper.BindEnv("DB_NAME")
+	viper.BindEnv("JWT_SECRET_KEY")
+	viper.BindEnv("JWT_EXPIRATION_HOURS")
+	viper.BindEnv("ENABLE_CACHE")
+	viper.BindEnv("REDIS_ADDR")
+	viper.BindEnv("REDIS_PASSWORD")
+	viper.BindEnv("LOG_LEVEL")
+	viper.BindEnv("LOG_FORMAT")
+
 	err = viper.Unmarshal(&config)
 	return
 }
